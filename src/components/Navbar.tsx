@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
 import { Sun, Moon, Menu, X, Zap } from "lucide-react";
+import GetStartedModal from "./GetStartedModal";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -77,12 +78,11 @@ export default function Navbar() {
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
 
-            <Link
-              href="/pricing"
-              className="hidden md:flex btn-gradient px-5 py-2 rounded-xl text-sm font-semibold text-white shadow-md hover:shadow-lg transition-all duration-200"
-            >
-              Get Started
-            </Link>
+            <GetStartedModal>
+              <button className="hidden md:flex btn-gradient px-5 py-2 rounded-xl text-sm font-semibold text-white shadow-md hover:shadow-lg transition-all duration-200">
+                Get Started
+              </button>
+            </GetStartedModal>
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -116,12 +116,11 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-2">
-            <Link
-              href="/pricing"
-              className="block w-full btn-gradient px-5 py-3 rounded-xl text-sm font-semibold text-white text-center shadow-md"
-            >
-              Get Started
-            </Link>
+            <GetStartedModal>
+              <button className="block w-full btn-gradient px-5 py-3 rounded-xl text-sm font-semibold text-white text-center shadow-md">
+                Get Started
+              </button>
+            </GetStartedModal>
           </div>
         </div>
       </div>
