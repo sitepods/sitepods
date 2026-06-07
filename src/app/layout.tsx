@@ -10,16 +10,50 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SitePods – Professional Business Websites on Subscription",
+  metadataBase: new URL("https://sitepods.in"),
+  title: {
+    default: "SitePods – Professional Business Websites on Subscription",
+    template: "%s | SitePods",
+  },
   description:
     "Get your professional business website without paying huge upfront costs. Hosting, SSL, maintenance, and support included. Starting ₹499/month.",
-  keywords:
-    "website subscription, business website, affordable website, SitePods, professional website India",
+  keywords: [
+    "website subscription India",
+    "business website India",
+    "affordable website design",
+    "professional website subscription",
+    "SitePods",
+    "website design India",
+    "small business website",
+    "restaurant website",
+    "clinic website",
+    "hotel website",
+  ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "SitePods – Professional Business Websites on Subscription",
     description:
       "Launch your business online with a fully managed website. Zero setup cost. Simple monthly subscription.",
+    url: "https://sitepods.in",
+    siteName: "SitePods",
     type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SitePods – Professional Business Websites on Subscription",
+    description:
+      "Launch your business online with a fully managed website. Zero setup cost. Simple monthly subscription.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 
@@ -29,7 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-IN" suppressHydrationWarning>
       <head>
         {/* Prevent dark-mode flash: run before paint */}
         <script
