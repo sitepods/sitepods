@@ -49,6 +49,15 @@ export default function Navbar() {
             <span className="text-xl font-bold text-gray-900 dark:text-white">
               Site<span className="gradient-text">Pods</span>
             </span>
+             {/* <Link href="/" className="flex items-center group">
+            <Image
+              src="/logo.png"
+              alt="SitePods"
+              width={140}
+              height={40}
+              className="h-10 w-auto object-contain group-hover:opacity-90 transition-opacity duration-200"
+              priority
+            /> */}
           </Link>
 
           {/* Desktop Nav */}

@@ -67,17 +67,10 @@ export default function RootLayout({
       <head>
         {/* Prevent dark-mode flash: run before paint */}
         <script
+          type={typeof window === "undefined" ? "text/javascript" : "text/plain"}
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                try{
-                  var t=localStorage.getItem('sitepods-theme');
-                  var p=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-                  var theme=t||p;
-                  if(theme==='dark') document.documentElement.classList.add('dark');
-                }catch(e){}
-              })();
-            `,
+            __html: `(function(){try{var t=localStorage.getItem('sitepods-theme');var p=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';if((t||p)==='dark')document.documentElement.classList.add('dark')}catch(e){}})()`,
           }}
         />
       </head>

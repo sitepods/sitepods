@@ -14,6 +14,7 @@ import {
   Scale,
   Rocket,
 } from "lucide-react";
+import TemplatePreviewModal from "@/components/TemplatePreviewModal";
 
 const categories = ["All", "Restaurant", "Clinic", "Hotel", "Education", "Law & Finance", "Startup"];
 
@@ -88,13 +89,14 @@ const projects = [
 
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   return (
+    <TemplatePreviewModal projectId={project.id}>
     <motion.div
       layout
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3 }}
-      className="group rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 card-hover soft-shadow"
+      className="group rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 card-hover soft-shadow cursor-pointer"
     >
       {/* Mock website preview */}
       <div className={`h-48 bg-gradient-to-br ${project.mockBg} relative overflow-hidden`}>
@@ -124,10 +126,10 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         </div>
 
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 dark:group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 dark:group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
           <div className="flex items-center gap-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-xl shadow-lg text-sm font-semibold text-gray-900 dark:text-white">
             <ExternalLink className="w-4 h-4" />
-            View Demo
+            Preview Template
           </div>
         </div>
       </div>
@@ -158,6 +160,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         </div>
       </div>
     </motion.div>
+    </TemplatePreviewModal>
   );
 }
 
