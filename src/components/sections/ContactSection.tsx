@@ -25,9 +25,9 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    value: "+91 99999 99999",
+    value: "+917566236471",
     sub: "Mon–Sat, 9am–7pm IST",
-    href: "tel:+919999999999",
+    href: "tel:++917566236471",
     color: "from-blue-500 to-cyan-600",
   },
   {
@@ -35,7 +35,7 @@ const contactInfo = [
     title: "WhatsApp",
     value: "Chat with us instantly",
     sub: "Usually responds in minutes",
-    href: "https://wa.me/919999999999",
+    href: "https://wa.me/+917566236471",
     color: "from-green-500 to-emerald-600",
   },
   {
@@ -223,7 +223,7 @@ export default function ContactSection() {
                   Thank you for reaching out! Our team will contact you within 4 hours to discuss your website project.
                 </p>
                 <a
-                  href="https://wa.me/919999999999"
+                  href="https://wa.me/+917566236471"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-gradient inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-white font-semibold text-sm"

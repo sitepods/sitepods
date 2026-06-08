@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import PageTransition from "@/components/PageTransition";
+import BackToTop from "@/components/BackToTop";
+import NavigationProgress from "@/components/NavigationProgress";
+import ScrollProgress from "@/components/ScrollProgress";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import CookieBanner from "@/components/CookieBanner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -75,7 +81,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <NavigationProgress />
+          <ScrollProgress />
+          <PageTransition>{children}</PageTransition>
+          <BackToTop />
+          <WhatsAppButton />
+          <CookieBanner />
+        </ThemeProvider>
       </body>
     </html>
   );

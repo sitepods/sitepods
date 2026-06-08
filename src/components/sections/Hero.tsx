@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
   Check,
@@ -17,6 +18,43 @@ import {
   Clock,
 } from "lucide-react";
 
+function useCountUp(target: number, duration = 1.8, enabled = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!enabled) return;
+    let start: number | null = null;
+    const step = (ts: number) => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / (duration * 1000), 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, enabled]);
+  return count;
+}
+
+function StatCard({ num, prefix, suffix, label }: { num: number; prefix: string; suffix: string; label: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const count = useCountUp(num, 1.8, inView);
+  return (
+    <div
+      ref={ref}
+      className="relative text-center py-4 rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden group hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="relative">
+        <div className="text-xl font-extrabold gradient-text mb-0.5">
+          {prefix}{count}{suffix}
+        </div>
+        <div className="text-[11px] text-gray-500 dark:text-gray-400 font-medium">{label}</div>
+      </div>
+    </div>
+  );
+}
+
 const features = [
   { icon: Check,       label: "Zero Setup Cost" },
   { icon: Globe,       label: "Hosting Included" },
@@ -27,10 +65,10 @@ const features = [
 ];
 
 const stats = [
-  { value: "500+",   label: "Businesses" },
-  { value: "₹499",   label: "Starting/mo" },
-  { value: "7 Days", label: "Avg Delivery" },
-  { value: "24/7",   label: "Support" },
+  { num: 500, prefix: "",  suffix: "+",     label: "Businesses" },
+  { num: 499, prefix: "₹", suffix: "",      label: "Starting/mo" },
+  { num: 7,   prefix: "",  suffix: " Days", label: "Avg Delivery" },
+  { num: 24,  prefix: "",  suffix: "/7",    label: "Support" },
 ];
 
 /* ─── Floating badge wrapper ─── */
@@ -334,17 +372,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.55 }}
           className="pb-12 grid grid-cols-2 md:grid-cols-4 gap-3"
         >
-          {stats.map(({ value, label }) => (
-            <div
-              key={label}
-              className="relative text-center py-4 rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden group hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative">
-                <div className="text-xl font-extrabold gradient-text mb-0.5">{value}</div>
-                <div className="text-[11px] text-gray-500 dark:text-gray-400 font-medium">{label}</div>
-              </div>
-            </div>
+          {stats.map((stat) => (
+            <StatCard key={stat.label} {...stat} />
           ))}
         </motion.div>
       </div>

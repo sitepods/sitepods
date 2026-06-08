@@ -53,14 +53,14 @@ export default function Footer() {
                 hello@sitepods.in
               </a>
               <a
-                href="tel:+919999999999"
+                href="tel:++917566236471"
                 className="flex items-center gap-3 text-sm text-gray-500 hover:text-indigo-400 transition-colors"
               >
                 <Phone className="w-4 h-4 text-indigo-500" />
-                +91 99999 99999
+                +917566236471
               </a>
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/+917566236471"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-gray-500 hover:text-green-400 transition-colors"

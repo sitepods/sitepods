@@ -6,6 +6,7 @@ import Problem from "@/components/sections/Problem";
 import Solution from "@/components/sections/Solution";
 import HowItWorks from "@/components/sections/HowItWorks";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import ComparisonSection from "@/components/sections/ComparisonSection";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
@@ -64,6 +65,7 @@ export default function Home() {
         <Solution />
         <HowItWorks />
         <WhyChooseUs />
+        <ComparisonSection />
         <Testimonials />
         <FAQ />
         <FinalCTA />
