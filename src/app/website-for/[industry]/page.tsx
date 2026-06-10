@@ -6,15 +6,6 @@ import IndustryHero from "@/components/sections/IndustryHero";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Testimonials from "@/components/sections/Testimonials";
 import FinalCTA from "@/components/sections/FinalCTA";
-import {
-  UtensilsCrossed,
-  Stethoscope,
-  Building2,
-  BookOpen,
-  Scale,
-  Rocket,
-  type LucideIcon,
-} from "lucide-react";
 
 type IndustryData = {
   name: string;
@@ -23,7 +14,6 @@ type IndustryData = {
   headline: string;
   subtext: string;
   benefits: string[];
-  icon: LucideIcon;
   gradient: string;
 };
 
@@ -44,7 +34,6 @@ const industries: Record<string, IndustryData> = {
       "Food gallery with stunning photos",
       "Customer reviews section",
     ],
-    icon: UtensilsCrossed,
     gradient: "from-orange-400 to-red-500",
   },
   clinic: {
@@ -63,7 +52,6 @@ const industries: Record<string, IndustryData> = {
       "Location & directions with Google Maps",
       "Patient testimonials section",
     ],
-    icon: Stethoscope,
     gradient: "from-blue-400 to-cyan-500",
   },
   hotel: {
@@ -82,7 +70,6 @@ const industries: Record<string, IndustryData> = {
       "Google reviews integration",
       "WhatsApp booking support",
     ],
-    icon: Building2,
     gradient: "from-amber-400 to-yellow-500",
   },
   coaching: {
@@ -101,7 +88,6 @@ const industries: Record<string, IndustryData> = {
       "Fee structure page",
       "Testimonials from parents and students",
     ],
-    icon: BookOpen,
     gradient: "from-green-400 to-emerald-500",
   },
   law: {
@@ -120,7 +106,6 @@ const industries: Record<string, IndustryData> = {
       "Client testimonials",
       "Confidential contact form",
     ],
-    icon: Scale,
     gradient: "from-indigo-400 to-purple-500",
   },
   startup: {
@@ -139,7 +124,6 @@ const industries: Record<string, IndustryData> = {
       "Investor-ready design",
       "Integrations with your tools",
     ],
-    icon: Rocket,
     gradient: "from-violet-400 to-pink-500",
   },
 };
@@ -180,7 +164,7 @@ export default async function IndustryPage({
           headline={data.headline}
           subtext={data.subtext}
           benefits={data.benefits}
-          icon={data.icon}
+          iconKey={industry}
           gradient={data.gradient}
         />
         <HowItWorks />

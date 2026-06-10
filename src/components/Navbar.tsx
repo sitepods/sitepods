@@ -9,6 +9,7 @@ import GetStartedModal from "./GetStartedModal";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/why-sitepods", label: "Why Us?" },
   { href: "/pricing", label: "Pricing" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },

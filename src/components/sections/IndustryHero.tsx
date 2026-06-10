@@ -10,8 +10,23 @@ import {
   Smartphone,
   Zap,
   TrendingUp,
+  UtensilsCrossed,
+  Stethoscope,
+  Building2,
+  BookOpen,
+  Scale,
+  Rocket,
   type LucideIcon,
 } from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  restaurant: UtensilsCrossed,
+  clinic:     Stethoscope,
+  hotel:      Building2,
+  coaching:   BookOpen,
+  law:        Scale,
+  startup:    Rocket,
+};
 
 const features = [
   { icon: Check,       label: "Zero Setup Cost" },
@@ -27,7 +42,7 @@ type Props = {
   headline: string;
   subtext: string;
   benefits: string[];
-  icon: LucideIcon;
+  iconKey: string;
   gradient: string;
 };
 
@@ -36,9 +51,10 @@ export default function IndustryHero({
   headline,
   subtext,
   benefits,
-  icon: Icon,
+  iconKey,
   gradient,
 }: Props) {
+  const Icon = iconMap[iconKey] ?? Rocket;
   return (
     <section className="relative overflow-hidden hero-bg">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

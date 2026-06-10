@@ -1,19 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X, Minus } from "lucide-react";
+import { Check, X } from "lucide-react";
 
 const rows = [
-  { feature: "Setup Cost",       sitepods: "Zero",          freelancer: "₹20,000–₹1 Lakh", wix: "Zero" },
-  { feature: "Monthly Cost",     sitepods: "₹499/mo",       freelancer: "₹2,000+ (hosting + fixes)", wix: "₹1,200–₹3,000/mo" },
-  { feature: "Hosting Included", sitepods: true,            freelancer: false,                wix: true },
-  { feature: "SSL Certificate",  sitepods: true,            freelancer: "Extra cost",         wix: true },
-  { feature: "Maintenance",      sitepods: true,            freelancer: "You pay extra",      wix: "DIY only" },
-  { feature: "Mobile Responsive",sitepods: true,            freelancer: "Depends on dev",    wix: true },
-  { feature: "SEO Ready",        sitepods: true,            freelancer: "Depends on dev",    wix: "Basic only" },
-  { feature: "Delivery Time",    sitepods: "7 Days",        freelancer: "30–90 Days",         wix: "You do it yourself" },
-  { feature: "Ongoing Support",  sitepods: true,            freelancer: false,                wix: "Community only" },
-  { feature: "Content Updates",  sitepods: true,            freelancer: "Paid per change",    wix: "DIY only" },
+  { feature: "Setup Cost",        sitepods: "Zero",                    freelancer: "₹20,000–₹1 Lakh",           wix: "Zero" },
+  { feature: "Monthly Cost",      sitepods: "₹499/mo",                 freelancer: "₹2,000+ (hosting + fixes)",  wix: "₹1,200–₹3,000/mo" },
+  { feature: "Hosting Included",  sitepods: true,                      freelancer: false,                        wix: true },
+  { feature: "SSL Certificate",   sitepods: true,                      freelancer: "Extra cost",                 wix: true },
+  { feature: "Maintenance",       sitepods: true,                      freelancer: "You pay extra",              wix: "DIY only" },
+  { feature: "Mobile Responsive", sitepods: true,                      freelancer: "Depends on dev",             wix: true },
+  { feature: "SEO Ready",         sitepods: true,                      freelancer: "Depends on dev",             wix: "Basic only" },
+  { feature: "Delivery Time",     sitepods: "7 Days",                  freelancer: "30–90 Days",                 wix: "You do it yourself" },
+  { feature: "Ongoing Support",   sitepods: true,                      freelancer: false,                        wix: "Community only" },
+  { feature: "Content Updates",   sitepods: true,                      freelancer: "Paid per change",            wix: "DIY only" },
 ];
 
 type CellValue = string | boolean;
@@ -21,7 +21,7 @@ type CellValue = string | boolean;
 function Cell({ val, highlight }: { val: CellValue; highlight?: boolean }) {
   if (val === true)
     return (
-      <div className={`flex justify-center ${highlight ? "text-white" : "text-green-500"}`}>
+      <div className={`flex justify-center ${highlight ? "text-indigo-600 dark:text-indigo-400" : "text-green-500"}`}>
         <Check className="w-5 h-5" strokeWidth={2.5} />
       </div>
     );
@@ -32,7 +32,13 @@ function Cell({ val, highlight }: { val: CellValue; highlight?: boolean }) {
       </div>
     );
   return (
-    <span className={`text-sm font-medium text-center block ${highlight ? "text-white" : "text-gray-700 dark:text-gray-300"}`}>
+    <span
+      className={`text-sm font-medium text-center block leading-snug ${
+        highlight
+          ? "text-indigo-700 dark:text-indigo-300 font-semibold"
+          : "text-gray-600 dark:text-gray-400"
+      }`}
+    >
       {val}
     </span>
   );
@@ -73,61 +79,71 @@ export default function ComparisonSection() {
           </motion.p>
         </div>
 
-        {/* Table */}
+        {/* Scrollable table wrapper for mobile */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-xl"
+          className="overflow-x-auto -mx-4 sm:mx-0 px-4 sm:px-0"
         >
-          {/* Column headers */}
-          <div className="grid grid-cols-4 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-            <div className="p-5 text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-              Feature
-            </div>
-            <div className="p-5 text-center bg-gradient-to-b from-indigo-600 to-purple-700 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="bg-green-400 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow">
+          <div className="min-w-[540px] rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-xl">
+
+            {/* Column headers */}
+            <div className="grid grid-cols-4 border-b border-gray-200 dark:border-gray-800">
+              <div className="p-4 sm:p-5 text-xs sm:text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide bg-gray-50 dark:bg-gray-900 flex items-center">
+                Feature
+              </div>
+              {/* SitePods — highlighted header */}
+              <div className="p-4 sm:p-5 text-center bg-gradient-to-b from-blue-500 via-indigo-500 to-violet-500 flex flex-col items-center justify-center gap-1.5">
+                <span className="bg-green-400 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow whitespace-nowrap">
                   BEST VALUE
                 </span>
+                <div className="text-white font-extrabold text-sm sm:text-base leading-tight">SitePods</div>
+                <div className="text-blue-100 text-[11px]">from ₹499/mo</div>
               </div>
-              <div className="text-white font-extrabold text-base">SitePods</div>
-              <div className="text-indigo-200 text-xs mt-0.5">from ₹499/mo</div>
+              <div className="p-4 sm:p-5 text-center bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center">
+                <div className="font-bold text-gray-900 dark:text-white text-sm sm:text-base leading-tight">Freelancer</div>
+                <div className="text-gray-400 text-[11px] mt-0.5">one-time + ongoing</div>
+              </div>
+              <div className="p-4 sm:p-5 text-center bg-gray-50 dark:bg-gray-900 flex flex-col items-center justify-center">
+                <div className="font-bold text-gray-900 dark:text-white text-sm sm:text-base leading-tight">Wix / Squarespace</div>
+                <div className="text-gray-400 text-[11px] mt-0.5">DIY builder</div>
+              </div>
             </div>
-            <div className="p-5 text-center">
-              <div className="font-bold text-gray-900 dark:text-white text-base">Freelancer</div>
-              <div className="text-gray-400 text-xs mt-0.5">one-time + ongoing</div>
-            </div>
-            <div className="p-5 text-center">
-              <div className="font-bold text-gray-900 dark:text-white text-base">Wix / Squarespace</div>
-              <div className="text-gray-400 text-xs mt-0.5">DIY builder</div>
-            </div>
-          </div>
 
-          {/* Rows */}
-          {rows.map((row, i) => (
-            <div
-              key={row.feature}
-              className={`grid grid-cols-4 border-b border-gray-100 dark:border-gray-800 last:border-0 ${
-                i % 2 === 0 ? "bg-white dark:bg-gray-950" : "bg-gray-50/50 dark:bg-gray-900/50"
-              }`}
-            >
-              <div className="p-4 text-sm text-gray-600 dark:text-gray-400 font-medium flex items-center">
-                {row.feature}
+            {/* Rows */}
+            {rows.map((row, i) => (
+              <div
+                key={row.feature}
+                className={`grid grid-cols-4 border-b border-gray-100 dark:border-gray-800 last:border-0 ${
+                  i % 2 === 0 ? "bg-white dark:bg-gray-950" : "bg-gray-50/50 dark:bg-gray-900/50"
+                }`}
+              >
+                {/* Feature label */}
+                <div className="p-3 sm:p-4 text-xs sm:text-sm text-gray-700 dark:text-gray-300 font-medium flex items-center leading-snug">
+                  {row.feature}
+                </div>
+                {/* SitePods value — soft indigo tint */}
+                <div className="p-3 sm:p-4 bg-indigo-50/70 dark:bg-indigo-900/15 flex items-center justify-center">
+                  <Cell val={row.sitepods} highlight />
+                </div>
+                <div className="p-3 sm:p-4 flex items-center justify-center">
+                  <Cell val={row.freelancer} />
+                </div>
+                <div className="p-3 sm:p-4 flex items-center justify-center">
+                  <Cell val={row.wix} />
+                </div>
               </div>
-              <div className="p-4 bg-indigo-600/5 dark:bg-indigo-500/10 flex items-center justify-center">
-                <Cell val={row.sitepods} highlight />
-              </div>
-              <div className="p-4 flex items-center justify-center">
-                <Cell val={row.freelancer} />
-              </div>
-              <div className="p-4 flex items-center justify-center">
-                <Cell val={row.wix} />
-              </div>
-            </div>
-          ))}
+            ))}
+
+          </div>
         </motion.div>
+
+        {/* Mobile hint */}
+        <p className="text-center text-xs text-gray-400 mt-3 sm:hidden">
+          Swipe left to see full comparison
+        </p>
       </div>
     </section>
   );

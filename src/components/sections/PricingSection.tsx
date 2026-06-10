@@ -39,7 +39,7 @@ const plans = [
     icon: TrendingUp,
     price: { monthly: 999, annual: 799 },
     description: "Most popular for growing businesses that want more visibility.",
-    color: "from-indigo-600 to-purple-600",
+    color: "from-blue-500 via-indigo-500 to-violet-500",
     borderColor: "border-indigo-400 dark:border-indigo-600",
     featured: true,
     features: [
@@ -60,7 +60,7 @@ const plans = [
     icon: Crown,
     price: { monthly: 1999, annual: 1599 },
     description: "Full-service solution for businesses serious about digital growth.",
-    color: "from-purple-600 to-pink-600",
+    color: "from-violet-500 to-purple-500",
     borderColor: "border-purple-200 dark:border-purple-900",
     featured: false,
     features: [
@@ -160,7 +160,7 @@ export default function PricingSection() {
               transition={{ delay: i * 0.1 + 0.3 }}
               className={`relative rounded-3xl border-2 ${borderColor} ${
                 featured
-                  ? "bg-gradient-to-b from-indigo-600 to-purple-700 shadow-2xl shadow-indigo-500/30 scale-105"
+                  ? "bg-gradient-to-b from-blue-500 via-indigo-500 to-violet-500 shadow-2xl shadow-indigo-400/25 scale-105"
                   : "bg-white dark:bg-gray-900 shadow-sm hover:shadow-md"
               } transition-all duration-300`}
             >

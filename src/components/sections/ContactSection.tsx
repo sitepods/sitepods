@@ -27,7 +27,7 @@ const contactInfo = [
     title: "Call Us",
     value: "+917566236471",
     sub: "Mon–Sat, 9am–7pm IST",
-    href: "tel:++917566236471",
+    href: "tel:+917566236471",
     color: "from-blue-500 to-cyan-600",
   },
   {
