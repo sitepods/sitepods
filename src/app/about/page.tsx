@@ -5,9 +5,19 @@ import AboutSection from "@/components/sections/AboutSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "About – SitePods | India's Website Subscription Platform",
+  title: "About SitePods | Website design and development services",
   description:
-    "Learn about SitePods — our mission to make professional websites accessible to every small and medium business in India.",
+    "About SitePods. Custom Website Development. Responsive Website Design. Affordable Website Development Solutions for Growing online Businesses.",
+  keywords: [
+    "website design and development services",
+    "website development solution",
+  ],
+  openGraph: {
+    title: "About SitePods | Website design and development services",
+    description:
+      "About SitePods. Custom Website Development. Responsive Website Design. Affordable Website Development Solutions for Growing online Businesses.",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

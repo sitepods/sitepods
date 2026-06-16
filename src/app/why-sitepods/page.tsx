@@ -9,20 +9,27 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Why SitePods? | India's Best Website Subscription Service",
+  title: "Why Choose SitePods? Custom Website Development Services",
   description:
-    "Discover why 500+ Indian businesses chose SitePods over freelancers and DIY builders. Professional websites from ₹499/mo — zero setup cost, delivered in 7 days, fully managed.",
+    "Why Choose SitePods for Custom Website Development Services? We provide mobile-responsive web development services without Paying Huge Upfront Costs.",
   keywords: [
-    "why sitepods",
-    "best website service india",
-    "website subscription india",
-    "affordable business website",
-    "managed website india",
+    "website development company",
+    "best web development companies",
+    "top web development companies",
+    "custom website development",
+    "custom website developer",
+    "website customization services",
+    "custom web development",
+    "custom web development company",
+    "custom website development services",
+    "custom ecommerce website development",
+    "custom web design agency",
+    "custom website development company",
   ],
   openGraph: {
-    title: "Why SitePods? | India's Best Website Subscription Service",
+    title: "Why Choose SitePods? Custom Website Development Services",
     description:
-      "Professional websites from ₹499/mo. Zero setup cost, 7-day delivery, fully managed. See why 500+ Indian businesses chose SitePods.",
+      "Why Choose SitePods for Custom Website Development Services? We provide mobile-responsive web development services without Paying Huge Upfront Costs.",
     type: "website",
   },
 };

@@ -18,30 +18,30 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://sitepods.in"),
   title: {
-    default: "SitePods – Professional Business Websites on Subscription",
+    default: "Get your Professional Business Website | SitePods",
     template: "%s | SitePods",
   },
   description:
-    "Get your professional business website without paying huge upfront costs. Hosting, SSL, maintenance, and support included. Starting ₹499/month.",
+    "Get a Professional Business Website designed according to your requirements without Paying Huge Upfront Costs for small & medium business. Mobile-responsive, SEO-ready, Hosting, Ongoing Maintenance and Support.",
   keywords: [
-    "website subscription India",
-    "business website India",
-    "affordable website design",
-    "professional website subscription",
-    "SitePods",
-    "website design India",
-    "small business website",
-    "restaurant website",
-    "clinic website",
-    "hotel website",
+    "Professional Website Design",
+    "Business Website Development",
+    "Responsive Website Design",
+    "Web development agency",
+    "website designer near me",
+    "web development company",
+    "affordable web design for small business",
+    "custom web design services",
+    "custom web design",
+    "custom web design company",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "SitePods – Professional Business Websites on Subscription",
+    title: "Get your Professional Business Website | SitePods",
     description:
-      "Launch your business online with a fully managed website. Zero setup cost. Simple monthly subscription.",
+      "Get a Professional Business Website designed according to your requirements without Paying Huge Upfront Costs for small & medium business.",
     url: "https://sitepods.in",
     siteName: "SitePods",
     type: "website",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SitePods – Professional Business Websites on Subscription",
+    title: "Get your Professional Business Website | SitePods",
     description:
-      "Launch your business online with a fully managed website. Zero setup cost. Simple monthly subscription.",
+      "Get a Professional Business Website designed according to your requirements without Paying Huge Upfront Costs for small & medium business.",
   },
   robots: {
     index: true,
@@ -69,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-IN" suppressHydrationWarning>
+    <html lang="en-IN" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         {/* Prevent dark-mode flash: run before paint */}
         <script

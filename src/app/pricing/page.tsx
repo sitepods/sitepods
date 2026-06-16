@@ -5,9 +5,16 @@ import PricingSection from "@/components/sections/PricingSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Pricing – SitePods | Starting ₹499/month",
+  title: "Pricing | Launch your Business Website Starting at Just ₹499",
   description:
-    "Choose the perfect plan for your business. Starter at ₹499/mo, Growth at ₹999/mo, Premium at ₹1999/mo. All plans include hosting, SSL, and support.",
+    "Website Development Pricing | Creative Web Development Services | Choose the plan that fits your business. All plans include hosting, SSL and support.",
+  keywords: ["creative web development"],
+  openGraph: {
+    title: "Pricing | Launch your Business Website Starting at Just ₹499",
+    description:
+      "Website Development Pricing | Creative Web Development Services | Choose the plan that fits your business. All plans include hosting, SSL and support.",
+    type: "website",
+  },
 };
 
 export default function PricingPage() {

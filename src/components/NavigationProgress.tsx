@@ -9,7 +9,7 @@ export default function NavigationProgress() {
   const [active, setActive] = useState(false);
   const [complete, setComplete] = useState(false);
   const prevPath = useRef(pathname);
-  const doneTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const doneTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   // Start bar when an internal link is clicked
   useEffect(() => {
